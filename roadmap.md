@@ -1,4 +1,4 @@
 # Roadmap
-- [ ] Create a polished documentation design and topic navigation.
-- [ ] Add pseudocode lessons, examples, search, and learning navigation.
-- [ ] Verify the main reading and search flows.
+- [x] Create a polished documentation design and topic navigation.
+- [x] Add pseudocode lessons, examples, search, and learning navigation.
+- [x] Verify the main reading and search flows.
