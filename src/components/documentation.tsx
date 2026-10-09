@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from '@tanstack/react-router';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Braces, Check, ChevronDown, ChevronRight, Code2, Copy, FileText, GitBranch, Layers, Lightbulb, List, Menu, MessageSquare, Search, Sparkles, Terminal, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Braces, Check, ChevronDown, ChevronRight, Code2, Copy, FileText, GitBranch, Layers, Lightbulb, List, Menu, MessageSquare, Search, Sparkles, Terminal, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { categories, topics, type Topic } from '@/lib/docs';
 import logicBlocks from '@/assets/logic-blocks.jpg';
@@ -43,7 +43,7 @@ export function Documentation({topic}: {topic: Topic}) {
     <div className="doc-layout">
       <aside className="doc-sidebar" data-open={mobileOpen} aria-label="Documentation topics">
         <div className="mb-6 flex items-center gap-2 px-2 text-xs font-semibold"><BookOpen className="size-4 text-primary"/>The pseudocode guide <span className="ml-auto rounded border border-border px-1.5 py-0.5 text-[9px] text-muted-foreground">DOCS</span></div>
-        {categories.map(category=><div key={category} className="mb-5"><h2 className="mb-1.5 flex items-center justify-between px-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{category}<ChevronDown className="size-3"/></h2><div className="space-y-0.5">{topics.filter(t=>t.category===category).map(t=>{const Icon = topicIcons[topics.indexOf(t)%topicIcons.length];return <TopicLink key={t.slug} topic={t} onClick={()=>setMobileOpen(false)} className={`topic-link ${t.slug === topic.slug?'bg-accent text-primary font-semibold':''}`}><Icon/><span>{t.title}</span>{t.slug===topic.slug&&<span className="ml-auto size-1.5 rounded-full bg-primary"/>}</TopicLink>;})}</div></div>)}
+        {categories.map(category=><div key={category} className="mb-5"><h2 className="mb-1.5 flex items-center justify-between px-2 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{category}<ChevronDown className="size-3"/></h2><div className="space-y-0.5">{topics.filter(t=>t.category===category).map(t=>{const Icon = topicIcons[topics.indexOf(t)%topicIcons.length] ?? FileText;return <TopicLink key={t.slug} topic={t} onClick={()=>setMobileOpen(false)} className={`topic-link ${t.slug === topic.slug?'bg-accent text-primary font-semibold':''}`}><Icon/><span>{t.title}</span>{t.slug===topic.slug&&<span className="ml-auto size-1.5 rounded-full bg-primary"/>}</TopicLink>;})}</div></div>)}
         <div className="mt-7 border-t border-border px-2 pt-5 text-[11px] text-muted-foreground"><span className="flex items-center gap-2"><Sparkles className="size-3.5 text-primary"/>A little clarity goes a long way.</span></div>
       </aside>
       <main className="doc-workspace">
