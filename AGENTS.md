@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Store the learning curriculum in a shared browser-safe data module; documentation pages and search consume the same source to keep topic navigation consistent.
+- Render documentation through a shared reader component at the index and parameterized topic route; each content route owns its page metadata.
