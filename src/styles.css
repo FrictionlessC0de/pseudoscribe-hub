@@ -167,3 +167,19 @@ html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 @media (max-width: 1190px) { .doc-workspace { grid-template-columns: minmax(0, 1fr); padding: 30px 38px; } .doc-toc { display: none; } }
 @media (max-width: 760px) { .doc-layout { display: block; } .doc-sidebar { display: none; z-index: 45; background: var(--background); width: 270px; box-shadow: 10px 0 25px color-mix(in oklab, var(--overlay) 8%, transparent); } .doc-sidebar[data-open=true] { display: block; } .doc-workspace { display: block; padding: 26px 21px; } .intro-banner-content { padding: 23px 20px; } .intro-banner img { width: 36%; } .intro-banner { min-height: 165px; } .search-modal { padding-top: 85px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .article-enter { animation: none; } }
+
+/* ---- Landing page ---- */
+.landing-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 78%); }
+.landing-glow { position: absolute; border-radius: 9999px; background: radial-gradient(closest-side, color-mix(in oklab, var(--foreground) 9%, transparent), transparent 75%); filter: blur(48px); pointer-events: none; }
+.landing-shine { background: linear-gradient(115deg, var(--foreground) 30%, color-mix(in oklab, var(--foreground) 45%, transparent) 55%, var(--foreground) 80%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: landing-shine-move 6s ease-in-out infinite; }
+@keyframes landing-shine-move { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0% 0; } }
+.landing-reveal { animation: landing-reveal-in 640ms cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+@keyframes landing-reveal-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+.landing-code-line { animation: landing-line-in 420ms ease-out backwards; }
+@keyframes landing-line-in { from { opacity: 0; transform: translateX(-7px); } to { opacity: 1; transform: translateX(0); } }
+.landing-float { animation: landing-float 7s ease-in-out infinite; }
+@keyframes landing-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.landing-marquee { animation: landing-marquee-scroll 38s linear infinite; }
+@keyframes landing-marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.landing-card { transition: border-color 200ms, transform 200ms, box-shadow 200ms; }
+.landing-card:hover { border-color: color-mix(in oklab, var(--primary) 35%, var(--border)); transform: translateY(-3px); box-shadow: 0 18px 45px -18px color-mix(in oklab, var(--overlay) 55%, transparent); }
