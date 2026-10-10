@@ -16,12 +16,12 @@ export const Route = createFileRoute('/')({
   component: Welcome,
 });
 
-const heroLines: Array<Array<{ text: string; cls?: string }>> = [
+const heroLines: Array<Array<{ text: string; cls?: string | undefined }>> = [
   [{ text: 'BEGIN', cls: 'code-keyword' }],
-  [{ text: '    ', }, { text: '// your journey starts here', cls: 'code-comment' }],
+  [{ text: '    ' }, { text: '// your journey starts here', cls: 'code-comment' }],
   [{ text: '    INPUT ', cls: 'code-keyword' }, { text: 'idea' }],
-  [{ text: '    plan ', cls: undefined }, { text: '← ', cls: 'code-operator' }, { text: 'breakDown(idea)' }],
-  [{ text: '    FOR EACH ', cls: 'code-keyword' }, { text: 'step ', }, { text: 'IN ', cls: 'code-keyword' }, { text: 'plan' }],
+  [{ text: '    plan ' }, { text: '← ', cls: 'code-operator' }, { text: 'breakDown(idea)' }],
+  [{ text: '    FOR EACH ', cls: 'code-keyword' }, { text: 'step ' }, { text: 'IN ', cls: 'code-keyword' }, { text: 'plan' }],
   [{ text: '        EXECUTE ', cls: 'code-keyword' }, { text: 'step' }],
   [{ text: '    ENDFOR', cls: 'code-keyword' }],
   [{ text: '    OUTPUT ', cls: 'code-keyword' }, { text: '"ship it"', cls: 'code-value' }],
