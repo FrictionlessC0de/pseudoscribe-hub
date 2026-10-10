@@ -166,7 +166,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 @media (min-width: 1500px) { .doc-workspace { gap: 65px; padding-top: 45px; } }
 @media (max-width: 1190px) { .doc-workspace { grid-template-columns: minmax(0, 1fr); padding: 30px 38px; } .doc-toc { display: none; } }
 @media (max-width: 760px) { .doc-layout { display: block; } .doc-sidebar { display: none; z-index: 45; background: var(--background); width: 270px; box-shadow: 10px 0 25px color-mix(in oklab, var(--overlay) 8%, transparent); } .doc-sidebar[data-open=true] { display: block; } .doc-workspace { display: block; padding: 26px 21px; } .intro-banner-content { padding: 23px 20px; } .intro-banner img { width: 36%; } .intro-banner { min-height: 165px; } .search-modal { padding-top: 85px; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .article-enter { animation: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .article-enter { animation: none; } .landing-reveal, .landing-code-line, .landing-float, .landing-shine, .landing-marquee { animation: none; } }
 
 /* ---- Landing page ---- */
 .landing-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 78%); -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 78%); }
