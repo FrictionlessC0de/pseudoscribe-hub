@@ -45,16 +45,12 @@ const steps = [
 
 function Welcome() {
   const [scrolled, setScrolled] = useState(false);
-  const [typed, setTyped] = useState(0);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  useEffect(() => {
-    const timer = setInterval(() => setTyped(v => (v >= heroLines.length ? v : v + 1)), 170);
-    return () => clearInterval(timer);
-  }, []);
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -134,7 +130,6 @@ function Welcome() {
                     {line.map((part, j) => <span key={j} className={part.cls}>{part.text}</span>)}
                   </div>
                 ))}
-                {typed >= heroLines.length && null}
               </code></pre>
             </div>
             <p className="mt-3 text-center text-[11px] text-muted-foreground">This is pseudocode. If you can read it, you already started.</p>
