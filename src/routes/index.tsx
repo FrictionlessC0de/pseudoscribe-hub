@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUpRight, BookOpen, Braces, Check, Code2, FileText, GitBranch, Layers, Lightbulb, List, MessageSquare, Search, Sparkles, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { categories, topics, type Topic } from '@/lib/docs';
+import { categories, topics } from '@/lib/docs';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -42,22 +42,15 @@ const steps = [
   { n: '03', title: 'Try a challenge', text: 'Practice problems build real confidence, one small win at a time.' },
 ];
 
-function topicHref(topic: Topic) {
-  return topic.slug === 'introduction' ? '/docs/introduction' : '/docs/$slug';
-}
 
 function Welcome() {
   const [scrolled, setScrolled] = useState(false);
-  const [typed, setTyped] = useState(0);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  useEffect(() => {
-    const timer = setInterval(() => setTyped(v => (v >= heroLines.length ? v : v + 1)), 170);
-    return () => clearInterval(timer);
-  }, []);
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -137,7 +130,6 @@ function Welcome() {
                     {line.map((part, j) => <span key={j} className={part.cls}>{part.text}</span>)}
                   </div>
                 ))}
-                {typed >= heroLines.length && null}
               </code></pre>
             </div>
             <p className="mt-3 text-center text-[11px] text-muted-foreground">This is pseudocode. If you can read it, you already started.</p>
@@ -179,7 +171,7 @@ function Welcome() {
             <div className="max-w-[560px]">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-primary">The curriculum</p>
               <h2 className="mt-3 font-display text-[30px] font-extrabold leading-tight sm:text-[36px]">Everything you will learn</h2>
-              <p className="mt-4 text-[15px] leading-7 text-muted-foreground">Four tracks, {topics.length} lessons, from your very first BEGIN to sorting, searching, and Big O.</p>
+              <p className="mt-4 text-[15px] leading-7 text-muted-foreground">{categories.length} tracks, {topics.length} lessons, from your very first BEGIN to sorting, searching, and Big O.</p>
             </div>
             <Button variant="outline" asChild className="bg-background text-xs">
               <Link to="/docs/$slug" params={{ slug: 'introduction' }}>Browse the full guide <ArrowRight className="size-3.5" /></Link>
@@ -194,7 +186,7 @@ function Welcome() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {topics.filter(t => t.category === category).map(t => (
-                    <Link key={t.slug} to={topicHref(t)} params={t.slug === 'introduction' ? undefined : { slug: t.slug }} className="rounded-md border border-border bg-soft px-3 py-1.5 text-[12px] text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
+                    <Link key={t.slug} to="/docs/$slug" params={{ slug: t.slug }} className="rounded-md border border-border bg-soft px-3 py-1.5 text-[12px] text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
                       {t.title}
                     </Link>
                   ))}
