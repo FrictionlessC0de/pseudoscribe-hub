@@ -84,7 +84,7 @@ function Welcome() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pb-20 pt-16 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-24">
           <div>
             <span className="landing-reveal inline-flex items-center gap-2 rounded-full border border-border bg-soft px-3.5 py-1.5 text-[11px] font-semibold text-muted-foreground" style={{ animationDelay: '0ms' }}>
-              <Sparkles className="size-3.5 text-primary" />The pseudocode guide · 27 lessons, zero fluff
+              <Sparkles className="size-3.5 text-primary" />SOS School pseudocode guide · 27 lessons, zero fluff
             </span>
             <h1 className="landing-reveal mt-6 font-display text-[42px] font-extrabold leading-[1.06] tracking-tight sm:text-[58px] lg:text-[64px]" style={{ animationDelay: '80ms' }}>
               Think clearly.<br />
