@@ -140,7 +140,11 @@
 h1,h2,h3 { font-family: var(--font-display); letter-spacing: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 .doc-layout { display: grid; grid-template-columns: 254px minmax(0, 1fr); }
-.doc-sidebar { position: fixed; top: 73px; bottom: 0; width: 254px; overflow-y: auto; background: var(--sidebar); border-right: 1px solid var(--border); padding: 27px 20px 24px; scrollbar-width: thin; }
+.doc-sidebar { position: fixed; top: 73px; bottom: 0; width: 254px; overflow-y: auto; overscroll-behavior: contain; background: var(--background); color: var(--sidebar-foreground); border-right: 1px solid var(--border); padding: 27px 20px 24px; scrollbar-width: thin; scrollbar-color: var(--sidebar-border) transparent; }
+.doc-sidebar::-webkit-scrollbar { width: 9px; }
+.doc-sidebar::-webkit-scrollbar-track { background: transparent; }
+.doc-sidebar::-webkit-scrollbar-thumb { background: var(--soft); border: 3px solid transparent; border-radius: 99px; background-clip: content-box; }
+.doc-sidebar::-webkit-scrollbar-thumb:hover { background: var(--sidebar-border); background-clip: content-box; }
 .doc-workspace { grid-column: 2; display: grid; grid-template-columns: minmax(0, 780px) 175px; gap: 45px; padding: 35px 40px 50px; justify-content: center; }
 .doc-article { min-width: 0; }
 .doc-toc { position: sticky; top: 109px; align-self: start; padding-top: 7px; }
