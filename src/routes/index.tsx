@@ -237,8 +237,8 @@ function Welcome() {
       {/* Footer */}
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 text-[11px] text-muted-foreground md:px-8">
-          <span className="flex items-center gap-2"><Braces className="size-3.5 text-primary" />Pseudo — ideas into algorithms.</span>
-          <span>Made for curious minds · Pseudo © 2026</span>
+          <span className="flex items-center gap-2"><Braces className="size-3.5 text-primary" />Pseudo — ideas into algorithms. SOS SCHOOL</span>
+          <span>Made for curious minds · Pseudo © 2026 . Abenezer Niguse</span>
         </div>
       </footer>
     </div>
