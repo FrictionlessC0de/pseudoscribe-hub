@@ -1,7 +1,344 @@
+# Variables & constants
+
+Give your data a name and your algorithm a memory.
+
 ## The idea
 
-A variable is a named place to hold a value. Assignment creates or updates that value. A constant represents a value that does not change during the algorithm. Pick descriptive names rather than single letters.
+A **variable** is a named place used to store a value that an algorithm can access and change while it runs.
 
-<Callout title="Keep in mind">
-  Choose names that communicate what a value represents.
-</Callout>
+A **constant** is a named value that is intended to remain unchanged throughout an algorithm.
+
+Think of a variable as a labeled box. The label tells you what the box represents, and the value inside is the information it stores.
+
+For example, a school system might store a student's name, age, and exam score in variables. These values can then be used in calculations, decisions, and output.
+
+**Keep in mind**
+
+Choose descriptive names that communicate what a value represents. Names such as `studentAge` and `totalPrice` are more meaningful than `x` and `y`.
+
+## Understanding variables
+
+### 1. Declaring and assigning a variable
+
+Assignment stores a value in a variable. In pseudocode, we use the left arrow `←` to show assignment.
+
+```text
+age ← 18
+studentName ← "Abebe"
+score ← 85
+```
+
+Here:
+
+- `age` stores the integer value `18`.
+- `studentName` stores the text `"Abebe"`.
+- `score` stores the value `85`.
+
+The variable name appears on the left side of the arrow, and the value or expression appears on the right side.
+
+### 2. Changing a variable's value
+
+A variable can hold different values at different points in an algorithm.
+
+```text
+score ← 60
+OUTPUT score
+
+score ← 90
+OUTPUT score
+```
+
+**Output**
+
+```text
+60
+90
+```
+
+The first assignment gives `score` the value `60`. The second assignment replaces that value with `90`.
+
+The variable does not keep both values simultaneously. After the second assignment, its current value is `90`.
+
+### 3. Using variables in calculations
+
+Variables can participate in arithmetic expressions.
+
+```text
+price ← 200
+quantity ← 3
+totalCost ← price * quantity
+
+OUTPUT totalCost
+```
+
+**Output**
+
+```text
+600
+```
+
+The algorithm multiplies the price by the quantity and stores the result in `totalCost`.
+
+This makes the algorithm reusable. If the price or quantity changes, the calculation can produce a different result without rewriting the formula.
+
+## Understanding constants
+
+A constant is a named value that should not change after it has been defined.
+
+For example, a program that calculates the area of a circle can use a constant for pi.
+
+```text
+CONSTANT PI ← 3.14159
+
+radius ← 5
+area ← PI * radius * radius
+
+OUTPUT area
+```
+
+**Output**
+
+```text
+78.53975
+```
+
+Here, `PI` represents a fixed value used in the calculation, while `radius` and `area` are variables.
+
+The value of `radius` can change for another calculation. The constant `PI` is intended to remain unchanged.
+
+**Remember:** Pseudocode conventions vary. In this lesson, `CONSTANT name ← value` is the notation used to define a constant.
+
+## Variables vs. constants
+
+| Feature | Variable | Constant |
+|---|---|---|
+| Purpose | Stores a value that may change | Represents a value intended to remain fixed |
+| Assignment | Can be updated | Defined once in the algorithm's intended design |
+| Example | `score ← 75` | `CONSTANT PASS_MARK ← 50` |
+| Typical use | Scores, quantities, counters | Tax rates, fixed limits, mathematical values |
+
+For example, a school grading algorithm may use a constant for the pass mark because the rule is fixed for that calculation, while a student's score varies from student to student.
+
+## Rules for naming variables
+
+Good variable names make algorithms easier to read, understand, and maintain.
+
+1. **Use meaningful names.** Prefer `studentAge` over `x`.
+2. **Start with a letter** when following the naming convention used in this lesson.
+3. **Avoid spaces.** Use `totalPrice`, `total_price`, or another consistent naming style.
+4. **Avoid reserved words.** Words such as `IF`, `WHILE`, and `OUTPUT` already have special meanings in pseudocode.
+5. **Be consistent.** If you use `studentName`, do not switch to `nameOfStudent` for the same value without a reason.
+
+Examples:
+
+| Poor name | Better name |
+|---|---|
+| `a` | `studentAge` |
+| `v1` | `unitPrice` |
+| `x2` | `numberOfStudents` |
+| `t` | `totalCost` |
+
+Single-letter names are acceptable in some situations, such as a short mathematical formula or a simple loop counter. However, descriptive names are usually better for beginners and longer algorithms.
+
+## See it in action
+
+### Worked example: Calculating a purchase
+
+A shop sells notebooks for 100 birr each. A customer buys 3 notebooks. Calculate the subtotal, apply a tax rate of 15%, and display the final total.
+
+**Pseudocode**
+
+```text
+CONSTANT TAX_RATE ← 0.15
+
+price ← 100
+quantity ← 3
+
+subtotal ← price * quantity
+tax ← subtotal * TAX_RATE
+total ← subtotal + tax
+
+OUTPUT subtotal
+OUTPUT tax
+OUTPUT total
+```
+
+**Output**
+
+```text
+300
+45
+345
+```
+
+**Step-by-step walkthrough**
+
+1. `TAX_RATE` is defined as `0.15`, representing 15%.
+2. `price` is assigned `100`.
+3. `quantity` is assigned `3`.
+4. `subtotal` becomes `100 * 3 = 300`.
+5. `tax` becomes `300 * 0.15 = 45`.
+6. `total` becomes `300 + 45 = 345`.
+7. The algorithm displays the subtotal, tax, and final total.
+
+The example demonstrates how variables hold intermediate results and how a constant represents a fixed rate.
+
+## Trace the values
+
+Tracing means following an algorithm one instruction at a time and recording the current value of each variable.
+
+Consider this algorithm:
+
+```text
+x ← 5
+y ← 3
+x ← x + y
+y ← x * 2
+
+OUTPUT x
+OUTPUT y
+```
+
+| Step | Instruction | `x` | `y` |
+|---|---|---:|---:|
+| 1 | `x ← 5` | 5 | — |
+| 2 | `y ← 3` | 5 | 3 |
+| 3 | `x ← x + y` | 8 | 3 |
+| 4 | `y ← x * 2` | 8 | 16 |
+
+**Final output**
+
+```text
+8
+16
+```
+
+Notice that `x ← x + y` does not mean that `x` equals itself plus `y` as a mathematical equation. It means: calculate the current value of `x + y`, then store the result back in `x`.
+
+This distinction is essential when learning algorithms and programming.
+
+## Common mistakes
+
+### Mistake 1: Confusing assignment with comparison
+
+```text
+age ← 18
+```
+
+This assigns the value `18` to `age`.
+
+```text
+IF age = 18 THEN
+    OUTPUT "Age is 18"
+ENDIF
+```
+
+Here, `=` is used as a comparison in this lesson's pseudocode convention. Assignment and comparison have different purposes.
+
+### Mistake 2: Using a variable before assigning a value
+
+```text
+total ← price * quantity
+```
+
+If `price` and `quantity` have not been given values, the calculation is not properly defined.
+
+**Better approach:** Assign or obtain the necessary values before using them.
+
+### Mistake 3: Expecting an old value to remain after reassignment
+
+```text
+count ← 10
+count ← 20
+OUTPUT count
+```
+
+The output is `20`, not `10`. The second assignment replaces the current value.
+
+### Mistake 4: Using unclear names
+
+```text
+a ← 500
+b ← 4
+c ← a / b
+```
+
+The calculation may work, but the purpose of each value is unclear.
+
+A clearer version might be:
+
+```text
+totalMarks ← 500
+numberOfSubjects ← 4
+averageMarks ← totalMarks / numberOfSubjects
+```
+
+Meaningful names help other people understand the algorithm without needing to guess.
+
+## Practice challenges
+
+### Challenge 1: Personal information
+
+Write an algorithm that stores a person's name and age, then displays both values.
+
+**Requirements**
+
+- Use two variables.
+- Assign suitable values.
+- Display the information using `OUTPUT`.
+
+### Challenge 2: Calculate a rectangle
+
+Write an algorithm that calculates the area of a rectangle using its length and width.
+
+Use the formula:
+
+`area = length × width`
+
+Test your algorithm with a length of `8` and a width of `5`.
+
+### Challenge 3: Shopping calculation
+
+A customer buys 4 items costing 75 birr each. Write an algorithm that calculates the subtotal and applies a 10% discount.
+
+**Requirements**
+
+- Store the item price and quantity in variables.
+- Define the discount rate as a constant.
+- Calculate and display the subtotal, discount amount, and final price.
+
+### Challenge 4: Predict the output
+
+Without running the algorithm, determine its final output.
+
+```text
+number ← 10
+number ← number + 5
+number ← number * 2
+number ← number - 4
+
+OUTPUT number
+```
+
+Explain how the value changes after each instruction.
+
+## Key takeaways
+
+- A variable stores a value that can change during an algorithm.
+- A constant represents a value intended to remain fixed.
+- The assignment arrow `←` assigns or updates a value.
+- Descriptive names make algorithms easier to understand.
+- Variables can be used in calculations and decision-making.
+- Tracing helps you understand how values change as an algorithm executes.
+
+## Keep your thinking clear
+
+Whenever you design an algorithm, ask yourself:
+
+- What information do I need to store?
+- Which values might change?
+- Which values should remain fixed?
+- Have I assigned values before using them?
+- Can another person understand my variable names?
+
+A well-designed algorithm begins with clearly named data and a good understanding of how that data changes.
