@@ -164,7 +164,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 .code-number { color: var(--code-number); }
 .code-operator { color: var(--code-operator); }
 .search-modal { position: fixed; inset: 0; z-index: 80; display: flex; justify-content: center; align-items: flex-start; padding: 130px 20px 20px; background: color-mix(in oklab, var(--overlay) 75%, transparent); backdrop-filter: blur(5px); }
-.search-dialog { background: var(--background); border: 1px solid var(--border); border-radius: 8px; width: 570px; max-height: 65vh; overflow: auto; box-shadow: 0 20px 80px color-mix(in oklab, var(--overlay) 20%, transparent); }
+.search-dialog { background: var(--background); border: 1px solid var(--border); border-radius: 8px; width: 570px; max-width: calc(100vw - 32px); max-height: 65vh; overflow: auto; box-shadow: 0 20px 80px color-mix(in oklab, var(--overlay) 20%, transparent); }
 .article-enter { animation: article-in 300ms ease-out; }
 @keyframes article-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @media (min-width: 1500px) { .doc-workspace { gap: 65px; padding-top: 45px; } }
